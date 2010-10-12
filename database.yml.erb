@@ -1,0 +1,20 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: <%= app_name %>_development
+  pool: 5
+
+test: &test
+  adapter: postgresql
+  encoding: unicode
+  database: <%= app_name %>_test
+  pool: 5
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: <%= app_name %>_production
+  pool: 5
+
+cucumber:
+  <<: *test

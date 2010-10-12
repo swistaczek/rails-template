@@ -1,0 +1,23 @@
+require "bundler/capistrano"
+
+set :application, "<%= app_name %>"
+set :repository,  "git@code.appfission.com:<%= app_name%>.git"
+set :deploy_to, '/srv/www/<%= app_name %>'
+set :user, '<%= app_name %>'
+set :scm, :git
+set :use_sudo, false
+set :deploy_via, :remote_cache
+
+role :web, "<%= server_name %>"                          # Your HTTP server, Apache/etc
+role :app, "<%= server_name %>"                          # This may be the same as your `Web` server
+role :db,  "<%= server_name %>", :primary => true # This is where Rails migrations will run
+
+namespace :deploy do
+  task :start do ; end
+  task :stop do ; end
+  task :restart, :roles => :app, :except => { :no_release => true } do
+    run "touch #{File.join(current_path,'tmp','restart.txt')}"
+  end
+end%
+
+after "deploy", "deploy:cleanup"
