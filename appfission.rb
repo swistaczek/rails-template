@@ -25,6 +25,7 @@ gem 'redis-store', '1.0.0.beta3'
 gem 'rspec-rails'
 gem 'spork'
 gem 'will_paginate'
+gem 'validation_reflection'
 
 template = ERB.new(File.read(base_path + '/database.yml.erb'))
 File.open('config/database.yml', 'w') {|f| f << template.result(binding) }
