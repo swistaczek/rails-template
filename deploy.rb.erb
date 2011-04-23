@@ -1,8 +1,8 @@
 require "bundler/capistrano"
 
 set :application, "<%= app_name %>"
-set :repository,  "git@code.appfission.com:<%= app_name%>.git"
-set :deploy_to, '/srv/www/<%= app_name %>'
+set :repository,  "git@bzdury.pl:<%= app_name%>.git"
+set :deploy_to, '/var/www/vhosts/<%= app_name %>'
 set :user, '<%= app_name %>'
 set :scm, :git
 set :use_sudo, false

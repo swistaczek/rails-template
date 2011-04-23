@@ -1,5 +1,5 @@
 #server used for capistrano deploy
-server_name = 'calculon.appfission.com'
+server_name = 'bzdury.pl'
 #not configurable beyond here
 
 app_name = Dir.pwd.split('/').last
